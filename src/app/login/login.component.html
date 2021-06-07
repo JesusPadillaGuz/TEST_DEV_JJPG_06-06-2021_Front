@@ -1,0 +1,36 @@
+
+    <div class="image-fondo" style="height: 95vh;">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Iniciar Sesión</h3>
+                </div>
+                <div class="card-body">
+                    <form class="form" (submit)="onLogin()" >
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input [(ngModel)]="this.email" type="email" name="email" id="email"  class="form-control" placeholder="Email" email="true">
+                            
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input [(ngModel)]="this.password"  type="password" name="password" id="password"  class="form-control" placeholder="Contraseña">
+                        </div>
+                    
+                        <div class="form-group">
+                            <input type="submit" value="Entrar" class="btn float-right login_btn">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center links">
+                        Prueba Toka
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>

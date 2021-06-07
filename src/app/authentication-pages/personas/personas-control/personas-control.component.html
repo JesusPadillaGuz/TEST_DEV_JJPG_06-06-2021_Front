@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="header">
+      <h2>Personas Fisicas</h2>
+  </div>
+      <div class="align">
+      <button class="btn" [routerLink]="['/personasFisicas/Nuevo']"><i class="fas fa-user-plus fa-lg"></i></button>
+      <Button style="float: right;" class="btn" (click)="back()"><i class="fas fa-arrow-left fa-2x"></i></Button>
+    </div>
+      <div class="row">
+          <div class="col">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellidos</th>
+                      <th>Fecha de Nacimiento</th>
+                      <th>RFC</th>
+                      <th>Fecha Registro</th>
+                      <th>Fecha de Actualizacion</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let persona of this.listaPersonasFisicas">
+                      <td>{{persona.nombre}}</td>
+                      <td>{{persona.apellidoPaterno}} {{persona.apellidoMaterno}}</td>
+                      <td>{{persona.fechaNacimiento| date:'d/MM/y'}}</td>
+                      <td>{{persona.rfc}}</td>
+                      <td>{{persona.fechaRegistro | date:'d/MM/y, h:mm a'}}</td>
+                      <td>{{persona.fechaActualizacion | date:'d/MM/y, h:mm a'}}</td>
+                      <td>
+                          <Button class="btn" [routerLink]="['/personasFisicas/Editar/',persona.idPersonaFisica]"><i class="fas fa-pencil-alt"></i></Button>
+                          <Button   class="btn" (click)="auxUsuario(persona)" data-toggle="modal" data-target="#ModalEliminarPersona"><i class="far fa-trash-alt"></i></Button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+      </div>
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="ModalEliminarPersona"  #content>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar Persona Física</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Estas tratando de eliminar a "{{this.personaFisica['nombre']}}"</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="onDelete()" data-dismiss="modal">Confirmar</button>
+        </div>
+      </div>
+  </div>
+  </div>

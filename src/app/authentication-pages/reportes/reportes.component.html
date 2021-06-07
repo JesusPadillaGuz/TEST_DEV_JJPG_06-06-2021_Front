@@ -1,0 +1,45 @@
+<div *ngIf="customers">
+<div class="container">
+  <div>
+    <Button style="float: right;" class="btn" (click)="back()"><i class="fas fa-arrow-left fa-2x"></i></Button>
+    <img style="width: 3rem;cursor: pointer;" src="../../../assets/excel.png" (click)="generateExcel()"/>
+    <p>Descargar Excel</p>
+  </div>
+    <div style="text-align:center">
+        <h4>
+          Clientes
+        </h4>
+      
+        <table class="table table-hover table-sm">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Id Cliente</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Paterno</th>
+                <th scope="col">Materno</th>
+                <th scope="col">RFC</th>
+                <th scope="col">Razon Social</th>
+                <th scope="col">Sucursal</th>
+                <th scope="col">Id Empleado</th>
+                <th scope="col">Id Viaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of customers | paginate: config">
+                <th scope="row">{{item.IdCliente}}</th>
+                <td>{{item.Nombre}}</td>
+                <td>{{item.Paterno}}</td>
+                <td>{{item.Materno}}</td>
+                <td>{{item.RFC}}</td>
+                <td>{{item.RazonSocial}}</td>
+                <td>{{item.Sucursal}}</td>
+                <td>{{item.IdEmpleado}}</td>
+                <td>{{item.IdViaje}}</td>
+              </tr>
+            </tbody>
+          </table>
+        
+          <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+      </div>
+      </div>
+</div>
